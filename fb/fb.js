@@ -33,6 +33,8 @@ let velocidadX = -2
 let velocidadY = 0 // meiga velociadad de vuelo
 let gravedad = 0.4
 
+let gameOver = false
+
 window.onload = function() { 
     tablero = document.getElementById("tablero")
     tablero.width = tableroWidth
@@ -59,17 +61,29 @@ window.onload = function() {
 
 function update() {
     requestAnimationFrame(update);
+    if (gameOver){
+        return 
+    }
     dibujo.clearRect(0, 0, tablero.width, tablero.height);
 
-    velocidadY += gravedad 
-    meiga.y += velocidadY
+    velocidadY += gravedad
+   // meiga.y += velocidadY
+    meiga.y = Math.max(meiga.y + velocidadY, 0  );
     dibujo.drawImage(meigaImg, meiga.x, meiga.y, meiga.width, meiga.height); // meiga
+
+    if (meiga.y > tablero.height){
+        gameOver = true
+    }
 
     // tuberia avanza izquierda
     for (let i = 0; i < tuberiasArray.length; i++) {
         let tuberia = tuberiasArray[i];
         tuberia.x += velocidadX; 
         dibujo.drawImage(tuberia.img, tuberia.x, tuberia.y, tuberia.width, tuberia.height);
+
+        if (detectarColision(meiga, tuberia)) {
+            gameOver = true
+        }
     }
 }
 
@@ -105,4 +119,11 @@ function ponTuberia(){
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW"){
         velocidadY = -6
     } 
+}
+
+function detectarColision (a,b){
+    return  a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
+    a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
+    a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
+    a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
 }
