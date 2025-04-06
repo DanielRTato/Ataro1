@@ -5,8 +5,8 @@ let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
 // variables de la meiga
-let meigaWidth = 84
-let meigaHeight = 74;
+let meigaWidth = 54
+let meigaHeight = 44;
 let meigaX = tableroWidth/8 
 let meigaY = tableroHeight/2
 let meigaImg
@@ -30,6 +30,8 @@ let tuberiaAbajoImg
 
 // fisicas
 let velocidadX = -2
+let velocidadY = 0 // meiga velociadad de vuelo
+let gravedad = 0.4
 
 window.onload = function() { 
     tablero = document.getElementById("tablero")
@@ -41,21 +43,26 @@ window.onload = function() {
    tuberiaArribaImg.src = "../assets/imagenes/FB/toppipe.png"
 
     tuberiaAbajoImg = new Image()
-    tuberiaAbajoImg.src = "../assets/imagenes/FB/bottonpipe.png"
+    tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"
 
     meigaImg = new Image()
-    meigaImg.src = "../assets/imagenes/FB/RanaFlappy.png"
+    meigaImg.src = "../assets/imagenes/FB/RanaFlappy(1).png"
     meigaImg.onload = function(){
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
     requestAnimationFrame(update)
     setInterval(ponTuberia, 1500) // cada 1,5 segundos
+    document.addEventListener("keydown", ranaVoladora)
 }
+
+
 
 function update() {
     requestAnimationFrame(update);
     dibujo.clearRect(0, 0, tablero.width, tablero.height);
 
+    velocidadY += gravedad 
+    meiga.y += velocidadY
     dibujo.drawImage(meigaImg, meiga.x, meiga.y, meiga.width, meiga.height); // meiga
 
     // tuberia avanza izquierda
@@ -68,9 +75,10 @@ function update() {
 
 function ponTuberia(){
 
-    let alturaTuberias = tuberiaY
+    let alturaTuberias = tuberiaY - tuberiaHeight/4 - Math.random()*(tuberiaHeight/2)
+    let espacioAbierto = tableroHeight/4
 
-
+    // tuberias de arriba
     let tuberiaArriba = {
         img : tuberiaArribaImg,
         x : tuberiaX,
@@ -81,4 +89,20 @@ function ponTuberia(){
     }
     tuberiasArray.push(tuberiaArriba)
 
+    // Tubería de abajo
+    let tuberiaAbajo = {
+        img: tuberiaAbajoImg,
+        x: tuberiaX,
+        y: alturaTuberias + tuberiaHeight + espacioAbierto,
+        width: tuberiaWidth,
+        height: tuberiaHeight,
+        
+    }
+    tuberiasArray.push(tuberiaAbajo)
+}
+
+    function  ranaVoladora(e) {
+    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW"){
+        velocidadY = -6
+    } 
 }
