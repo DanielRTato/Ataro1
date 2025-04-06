@@ -29,7 +29,7 @@ let tuberiaArribaImg
 let tuberiaAbajoImg
 
 // fisicas
-
+let velocidadX = -2
 
 window.onload = function() { 
     tablero = document.getElementById("tablero")
@@ -52,23 +52,29 @@ window.onload = function() {
     setInterval(ponTuberia, 1500) // cada 1,5 segundos
 }
 
-function update(){
-    requestAnimationFrame(update)
-    dibujo.clearRect(0,0, tablero.width, tablero.height)
+function update() {
+    requestAnimationFrame(update);
+    dibujo.clearRect(0, 0, tablero.width, tablero.height);
 
-    dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height) //meiga
+    dibujo.drawImage(meigaImg, meiga.x, meiga.y, meiga.width, meiga.height); // meiga
 
-    for (let i = 0; i< tuberiasArray.length; i++){
-        let tuberia = tuberiasArray[i]
-        dibujo.drawImage(tuberia.x,tuberia.y, tuberia.width, tuberia.height  )
+    // tuberia avanza izquierda
+    for (let i = 0; i < tuberiasArray.length; i++) {
+        let tuberia = tuberiasArray[i];
+        tuberia.x += velocidadX; 
+        dibujo.drawImage(tuberia.img, tuberia.x, tuberia.y, tuberia.width, tuberia.height);
     }
 }
 
 function ponTuberia(){
+
+    let alturaTuberias = tuberiaY
+
+
     let tuberiaArriba = {
         img : tuberiaArribaImg,
         x : tuberiaX,
-        y : tuberiaY,
+        y : alturaTuberias,
         width : tuberiaWidth,
         height : tuberiaHeight,
         superado : false
