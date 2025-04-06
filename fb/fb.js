@@ -5,8 +5,8 @@ let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
 // variables de la meiga
-let meigaWidth = 54
-let meigaHeight = 44;
+let meigaWidth = 64
+let meigaHeight = 54;
 let meigaX = tableroWidth/8 
 let meigaY = tableroHeight/2
 let meigaImg
@@ -34,6 +34,7 @@ let velocidadY = 0 // meiga velociadad de vuelo
 let gravedad = 0.4
 
 let gameOver = false
+let puntuacion = 0
 
 window.onload = function() { 
     tablero = document.getElementById("tablero")
@@ -81,10 +82,18 @@ function update() {
         tuberia.x += velocidadX; 
         dibujo.drawImage(tuberia.img, tuberia.x, tuberia.y, tuberia.width, tuberia.height);
 
+        if (!tuberia.superado && meiga.x > tuberia.x + tuberia.width){
+            puntuacion += 0.5
+            tuberia.superado = true
+        }
+
         if (detectarColision(meiga, tuberia)) {
             gameOver = true
         }
     }
+    dibujo.fillStyle = "white"
+    dibujo.font = "45px sans-serif"
+    dibujo.fillText (puntuacion,5,45)
 }
 
 function ponTuberia(){
