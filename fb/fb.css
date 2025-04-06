@@ -1,0 +1,10 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    
+}
+
+#tablero{
+    background-color: black;
+    background-image: url("../assets/imagenes/FB/flappybirdbg.png") ;
+}
