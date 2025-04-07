@@ -52,10 +52,10 @@ window.onload = function() {
    tuberiaArribaImg.src = "../assets/imagenes/FB/toppipe.png"
 
     tuberiaAbajoImg = new Image()
-    tuberiaAbajoImg.src = " ../assets/imagenes/FB/bottompipe.png"
+    tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"
 
-    meigaImg = new Image() 
-    meigaImg.src = "../assets/imagenes/FB/RanaFlappy(1 ).png"
+    meigaImg = new Image()
+    meigaImg.src = "../assets/imagenes/FB/RanaFlappy(1).png"
     meigaImg.onload = function(){
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
