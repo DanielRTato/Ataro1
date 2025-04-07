@@ -1,6 +1,12 @@
+/*
+pendientes
+funcion que reinicie el juego cuando gameOver
+arrelgar hitboxesuna
+*/
+
 // variables de la ventana de juego
 let tablero;
-let tableroWidth = 720  // dimensiones del tablero
+let tableroWidth = 1080  // dimensiones del tablero 720 o 360
 let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
@@ -124,10 +130,24 @@ function ponTuberia(){
     tuberiasArray.push(tuberiaAbajo)
 }
 
-    function  ranaVoladora(e) {
-    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW"){
-        velocidadY = -6
-    } 
+function reiniciarJuego() {
+    // Reiniciar variables del juego
+    meiga.x = meigaX;
+    meiga.y = meigaY;
+    velocidadY = 0;
+    tuberiasArray = [];
+    puntuacion = 0;
+    gameOver = false;
+}
+
+function ranaVoladora(e) {
+    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW") {
+        if (gameOver) {
+            reiniciarJuego(); // Reinicia el juego si está en estado gameOver
+        } else {
+            velocidadY = -6; // Movimiento normal
+        }
+    }
 }
 
 function detectarColision (a,b){
