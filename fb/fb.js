@@ -1,6 +1,6 @@
 // variables de la ventana de juego
 let tablero;
-let tableroWidth = 360  // dimensiones del tablero
+let tableroWidth = 720  // dimensiones del tablero
 let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
@@ -29,7 +29,7 @@ let tuberiaArribaImg
 let tuberiaAbajoImg
 
 // fisicas
-let velocidadX = -2
+let velocidadX = -5
 let velocidadY = 0 // meiga velociadad de vuelo
 let gravedad = 0.4
 
@@ -99,7 +99,7 @@ function update() {
 function ponTuberia(){
 
     let alturaTuberias = tuberiaY - tuberiaHeight/4 - Math.random()*(tuberiaHeight/2)
-    let espacioAbierto = tableroHeight/4
+    let espacioAbierto = tableroHeight/4.5
 
     // tuberias de arriba
     let tuberiaArriba = {
