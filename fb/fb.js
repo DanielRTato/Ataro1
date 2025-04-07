@@ -55,7 +55,7 @@ window.onload = function() {
     tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"
 
     meigaImg = new Image()
-    meigaImg.src = "../assets/imagenes/FB/RanaFlappy.png"
+    meigaImg.src = "../assets/imagenes/FB/RanaFB.svg "
     meigaImg.onload = function(){
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
