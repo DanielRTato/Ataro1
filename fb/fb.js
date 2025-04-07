@@ -11,8 +11,8 @@ let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
 // variables de la meiga
-let meigaWidth = 64
-let meigaHeight = 54;
+let meigaWidth = 74
+let meigaHeight = 64;
 let meigaX = tableroWidth/8 
 let meigaY = tableroHeight/2
 let meigaImg
@@ -55,7 +55,7 @@ window.onload = function() {
     tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"
 
     meigaImg = new Image()
-    meigaImg.src = "../assets/imagenes/FB/RanaFlappy(1).png"
+    meigaImg.src = "../assets/imagenes/FB/RanaFlappy.png"
     meigaImg.onload = function(){
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
