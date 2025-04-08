@@ -11,8 +11,8 @@ let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
 
 // variables de la meiga
-let meigaWidth = 74
-let meigaHeight = 64;
+let meigaWidth = 94
+let meigaHeight = 84;
 let meigaX = tableroWidth/8 
 let meigaY = tableroHeight/2
 let meigaImg
@@ -55,7 +55,7 @@ window.onload = function() {
     tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"
 
     meigaImg = new Image()
-    meigaImg.src = "../assets/imagenes/FB/RanaFB.svg "
+    meigaImg.src = "../assets/imagenes/FB/Rana_sinBordeNegro.svg"
     meigaImg.onload = function(){
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
@@ -105,7 +105,7 @@ function update() {
 function ponTuberia(){
 
     let alturaTuberias = tuberiaY - tuberiaHeight/4 - Math.random()*(tuberiaHeight/2)
-    let espacioAbierto = tableroHeight/4.5
+    let espacioAbierto = tableroHeight/3.5 //4.5 original
 
     // tuberias de arriba
     let tuberiaArriba = {
