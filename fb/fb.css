@@ -9,9 +9,10 @@ body{
     background-color: black;
     background-image: url("../assets/imagenes/FB/flappybirdbg.png") ;
 }
-img {
-    image-rendering: crisp-edges; /* Para mejorar la nitidez */
-    width: 100%; /* Asegúrate de no estirar demasiado */
-    height: auto;
-  }
+
+.svg-original {
+    width: auto;     /* Ancho según la proporción original */
+    height: auto;    /* Alto según la proporción original */
+    max-width: 100%; /* Evita que se desborde en pantallas pequeñas */
+}
   

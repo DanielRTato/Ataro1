@@ -13,8 +13,8 @@ let dibujo;
 // variables de la meiga
 let meigaWidth = 94
 let meigaHeight = 84;
-let meigaX = tableroWidth/8 
-let meigaY = tableroHeight/2
+let meigaX = tableroWidth /6//8
+let meigaY = tableroHeight/2 //2
 let meigaImg
 
 let meiga = {
@@ -26,8 +26,8 @@ let meiga = {
 
 // variables de las tuberias
 let tuberiasArray= []
-let tuberiaWidth = 64 
-let tuberiaHeight = 512
+let tuberiaWidth = 64 //64 
+let tuberiaHeight = 510 //512
 let tuberiaX = tableroWidth
 let tuberiaY = 0
 
@@ -35,7 +35,7 @@ let tuberiaArribaImg
 let tuberiaAbajoImg
 
 // fisicas
-let velocidadX = -15
+let velocidadX = -10
 let velocidadY = 0 // meiga velociadad de vuelo
 let gravedad = 0.4
 
