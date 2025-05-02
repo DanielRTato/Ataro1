@@ -97,9 +97,15 @@ function update() {
             gameOver = true
         }
     }
+    // PUntuacion
     dibujo.fillStyle = "white"
     dibujo.font = "45px sans-serif"
     dibujo.fillText (puntuacion,5,45)
+
+    if(gameOver) {
+        dibujo.fillText("GAME OVER", 5 , 90);
+    }
+
 }
 
 function ponTuberia(){
