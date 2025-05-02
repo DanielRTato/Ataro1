@@ -42,7 +42,15 @@ let gravedad = 0.4
 let gameOver = false
 let puntuacion = 0
 
+// Sonidos
+let volarSonido = new Audio("../assets/audio/FB/sfx_wing.wav");
+let hitSonido = new Audio("../assets/audio/FB/sfx_hit.wav");
+let fondoSonido = new Audio("../assets/audio/FB/Bg_BABA_YAGA.mp3");
+fondoSonido.loop = true;
+
+
 window.onload = function() { 
+    
     tablero = document.getElementById("tablero")
     tablero.width = tableroWidth
     tablero.height = tableroHeight
@@ -67,6 +75,7 @@ window.onload = function() {
 
 
 function update() {
+    
     requestAnimationFrame(update);
     if (gameOver){
         return 
@@ -74,8 +83,7 @@ function update() {
     dibujo.clearRect(0, 0, tablero.width, tablero.height);
   
     velocidadY += gravedad
-   // meiga.y += velocidadY
-    meiga.y = Math.max(meiga.y + velocidadY, 0  );
+    meiga.y = Math.max(meiga.y + velocidadY, 0);
     dibujo.drawImage(meigaImg, meiga.x, meiga.y, meiga.width, meiga.height); // meiga
 
     if (meiga.y > tablero.height){
@@ -94,6 +102,7 @@ function update() {
         }
 
         if (detectarColision(meiga, tuberia)) {
+            hitSonido.play();
             gameOver = true
         }
     }
@@ -104,6 +113,7 @@ function update() {
 
     if(gameOver) {
         dibujo.fillText("GAME OVER", 5 , 90);
+        fondoSonido.pause();
     }
 
 }
@@ -144,10 +154,20 @@ function reiniciarJuego() {
     tuberiasArray = [];
     puntuacion = 0;
     gameOver = false;
+    
+
 }
 
 function ranaVoladora(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW") {
+        if (fondoSonido.pause) {
+            fondoSonido.play();
+        }
+        fondoSonido.play();
+
+        volarSonido.play();
+        
+
         if (gameOver) {
             reiniciarJuego(); // Reinicia el juego si está en estado gameOver
         } else {
