@@ -35,7 +35,7 @@ let tuberiaArribaImg
 let tuberiaAbajoImg
 
 // fisicas
-let velocidadX = -10
+let velocidadX = -15
 let velocidadY = 0 // meiga velociadad de vuelo
 let gravedad = 0.4
 
@@ -60,7 +60,7 @@ window.onload = function() {
         dibujo.drawImage(meigaImg ,meiga.x, meiga.y, meiga.width, meiga.height)
     }
     requestAnimationFrame(update)
-    setInterval(ponTuberia, 1500) // cada 1,5 segundos
+    setInterval(ponTuberia, 800) // cada 1,5 segundos
     document.addEventListener("keydown", ranaVoladora)
 }
 
@@ -72,7 +72,7 @@ function update() {
         return 
     }
     dibujo.clearRect(0, 0, tablero.width, tablero.height);
-
+  
     velocidadY += gravedad
    // meiga.y += velocidadY
     meiga.y = Math.max(meiga.y + velocidadY, 0  );
