@@ -9,7 +9,7 @@ let tablero;
 let tableroWidth = 1080  // dimensiones del tablero 720 o 360
 let tableroHeight = 640; // dimensiones del tablero
 let dibujo;
-
+ 
 // variables de la meiga
 let meigaWidth = 94
 let meigaHeight = 84;
@@ -49,7 +49,7 @@ window.onload = function() {
     dibujo = tablero.getContext("2d")
 
    tuberiaArribaImg = new Image()
-   tuberiaArribaImg.src = "../assets/imagenes/FB/toppipe.png"
+   tuberiaArribaImg.src = "../assets/imagenes/FB/toppipe.png "
 
     tuberiaAbajoImg = new Image()
     tuberiaAbajoImg.src = "../assets/imagenes/FB/bottompipe.png"

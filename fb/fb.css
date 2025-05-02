@@ -1,8 +1,10 @@
 body{
+    display: flex;
+    align-items: center;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     background-color: black;
-    
+    justify-content: center;
 }
 
 #tablero{
