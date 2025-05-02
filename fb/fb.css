@@ -7,12 +7,12 @@ body{
 
 #tablero{
     background-color: black;
-    background-image: url("../assets/imagenes/FB/flappybirdbg.png") ;
+    background-image: url("../assets/imagenes/FB/fondoBueno.jpg") ;
 }
 
 .svg-original {
-    width: auto;     /* Ancho según la proporción original */
-    height: auto;    /* Alto según la proporción original */
-    max-width: 100%; /* Evita que se desborde en pantallas pequeñas */
+    width: auto;     
+    height: auto;    
+    max-width: 100%; 
 }
   
