@@ -1,4 +1,5 @@
 body{
+    position: relative;
     display: flex;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
@@ -18,3 +19,34 @@ body{
     max-width: 100%; 
 }
   
+
+#reiniciar {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Posición absoluta para centrarlo */
+    top: 50%; /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste para centrar completamente */
+    background-color: #ff7518; /* Naranja Halloween */
+    color: white; /* Texto blanco */
+    font-family: 'Courier New', Courier, monospace; /* Fuente consistente con el juego */
+    font-size: 20px; /* Tamaño de fuente */
+    border: 3px solid #000; /* Borde negro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    box-shadow: 0 4px #000; /* Sombra para efecto de profundidad */
+    transition: all 0.2s ease; /* Transición suave para efectos */
+    z-index: 10; /* Asegura que esté encima del canvas */
+}
+
+#reiniciar:hover {
+    background-color: #ff4500; /* Color más oscuro al pasar el mouse */
+    box-shadow: 0 2px #000; /* Reducir sombra */
+    transform: translate(-50%, -50%) scale(1.05); /* Efecto de "zoom" */
+}
+
+#reiniciar:active {
+    background-color: #cc3700; /* Color más oscuro al hacer clic */
+    box-shadow: 0 1px #000; /* Sombra más pequeña */
+    transform: translate(-50%, -50%) scale(0.95); /* Efecto de "presionado" */
+}

@@ -114,6 +114,7 @@ function update() {
     if(gameOver) {
         dibujo.fillText("GAME OVER", 5 , 90);
         fondoSonido.pause();
+         document.getElementById("reiniciar").style.display = "block"; // Mostrar botón
     }
 
 }
@@ -147,37 +148,32 @@ function ponTuberia(){
 }
 
 function reiniciarJuego() {
-    // Reiniciar variables del juego
     meiga.x = meigaX;
     meiga.y = meigaY;
     velocidadY = 0;
     tuberiasArray = [];
     puntuacion = 0;
     gameOver = false;
-    
+    fondoSonido.play();
 
+    document.getElementById("reiniciar").style.display = "none"; // Ocultar botón
 }
 
 function ranaVoladora(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyW") {
-        if (fondoSonido.pause) {
-            fondoSonido.play();
-        }
-        fondoSonido.play();
+        if (!gameOver) {
+            if (fondoSonido.paused) {
+                fondoSonido.play();
+            }
 
-        volarSonido.play();
-        
-
-        if (gameOver) {
-            reiniciarJuego(); // Reinicia el juego si está en estado gameOver
-        } else {
+            volarSonido.play();
             velocidadY = -6; // Movimiento normal
         }
     }
 }
 
 function detectarColision (a,b){
-    return  a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
+    return   a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
     a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
     a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
     a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
