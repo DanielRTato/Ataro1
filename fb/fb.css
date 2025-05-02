@@ -23,7 +23,7 @@ body{
 #reiniciar {
     display: none; /* Oculto por defecto */
     position: absolute; /* Posición absoluta para centrarlo */
-    top: 50%; /* Centrado vertical */
+    top: 60%; /* Mover hacia abajo */
     left: 50%; /* Centrado horizontal */
     transform: translate(-50%, -50%); /* Ajuste para centrar completamente */
     background-color: #ff7518; /* Naranja Halloween */

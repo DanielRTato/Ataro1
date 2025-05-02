@@ -112,9 +112,19 @@ function update() {
     dibujo.fillText (puntuacion,5,45)
 
     if(gameOver) {
-        dibujo.fillText("GAME OVER", 5 , 90);
+        // Centrar el texto "GAME OVER"
+        dibujo.fillStyle = "red"; // Color rojo para destacar
+        dibujo.font = "60px 'Courier New', Courier, monospace"; // Fuente más grande y consistente
+        let textoGameOver = "GAME OVER";
+        let textoX = (tablero.width - dibujo.measureText(textoGameOver).width) / 2; // Centrar horizontalmente
+        let textoY = tablero.height / 2; // Centrar verticalmente
+        dibujo.fillText(textoGameOver, textoX, textoY);
+
+        // Pausar la música de fondo
         fondoSonido.pause();
-         document.getElementById("reiniciar").style.display = "block"; // Mostrar botón
+
+        // Mostrar el botón de reinicio
+        document.getElementById("reiniciar").style.display = "block";
     }
 
 }
