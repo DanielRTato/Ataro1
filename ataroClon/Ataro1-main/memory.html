@@ -16,6 +16,12 @@
     <span>Jugador 2: <span id="score2">0</span></span>
   </div>
   <button id="reset-btn">Reiniciar Juego</button>
+  <button id="back-btn">Volver a la Página Principal</button>
   <script src="memory.js"></script>
+  <script>
+    document.getElementById('back-btn').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
 </body>
 </html>

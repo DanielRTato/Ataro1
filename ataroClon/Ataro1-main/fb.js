@@ -6,8 +6,8 @@ arrelgar hitboxesuna
 
 // variables de la ventana de juego
 let tablero;
-let tableroWidth = 1080  // dimensiones del tablero 720 o 360
-let tableroHeight = 640; // dimensiones del tablero
+let tableroWidth = 1200;  // dimensiones del tablero
+let tableroHeight = 800; // dimensiones del tablero
 let dibujo;
  
 // variables de la meiga

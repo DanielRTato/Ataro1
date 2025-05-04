@@ -49,6 +49,7 @@
     <div id="turnPanel" class="turn-panel">
       <p id="turnText">Turno de Jugador 1</p>
     </div>
+    <button id="back-btn">Volver a la Página Principal</button>
     <h2 class="palabra" id="palabra"></h2>
     <div class="flex-row" id="turnos">
     </div>
@@ -74,6 +75,11 @@
 </div>
 
   <script src="ahorcado.js"></script>
+  <script>
+    document.getElementById('back-btn').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
 </body>
 
 </html>
